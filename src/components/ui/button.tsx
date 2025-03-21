@@ -14,7 +14,7 @@ export default function Button ({children='',color='primary',  disabled=false, o
         (disabled ? `bg-[#aaa] text-white `: 
             (color == 'primary' ?
             ` bg-[#5500ff] text-white `:  
-        (color == 'white' ? '  bg-[#ffffff] text-black ': '  bg-[#ff0000] text-white ')))
+        (color == 'white' ? '  bg-[#ffffff] text-[#5500ff] ': '  bg-[#ff0000] text-white ')))
         + `  rounded-xl text-center  px-4 py-2 flex items-center  justify-center gap-2`}>
            
             {children}</button>)
