@@ -3,7 +3,7 @@ export default function Sidebar(){
 
         <ul className="flex flex-col items-center justify-center px-4 py-2">
             <li>
-                <Image src={} />
+        
             </li>
         </ul>
 

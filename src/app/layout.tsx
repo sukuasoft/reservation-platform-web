@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import '@/styles/main.css';
+import "@/styles/main.css";
 import { AppProvider } from "@/contexts/appContext";
+import { Toaster } from "react-hot-toast";
+
 
 export const metadata: Metadata = {
   title: "Plataforma de reservas",
@@ -12,12 +14,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="pt">
       <body>
-      <AppProvider>
-      {children}
-      </AppProvider>
+        <Toaster />
+        <AppProvider apiUrl={process.env.API_URL ?? ""}>
+          {children}
+        </AppProvider>
       </body>
     </html>
   );
