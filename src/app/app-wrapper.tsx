@@ -10,12 +10,14 @@ import { AnimatePresence, motion } from "framer-motion";
 
 interface AppWrapperProps {
   children: React.ReactNode;
-  needAuth?: boolean;
+  needAuth?: boolean ;
+  noRedirect?:boolean
 }
 
 export default function AppWrapper({
   children,
   needAuth = true,
+  noRedirect=false
 }: AppWrapperProps) {
   const { get } = useApi();
   const { setUser, user, setToken } = useApp();
@@ -26,12 +28,16 @@ export default function AppWrapper({
 
   async function initializing() {
     if (user) {
-      setInitialized(true);
 
       if (!needAuth) {
-        router.push("/home");
+
+
+        if(!noRedirect){
+            router.push("/home");
+            return;
+        }
+      
       }
-      return;
     }
 
     const data = await get("/me");
@@ -42,14 +48,25 @@ export default function AppWrapper({
         email: data.data.email,
         type: data.data.type,
         nif: data.data.nif,
+        balance: data.data.balance
       });
 
       if (!needAuth) {
-        router.push("/home");
+
+        if(!noRedirect){
+            router.push("/home");
+            return;
+        }
+      
       }
     } else {
       if (needAuth) {
-        router.push("/register");
+
+        if(!noRedirect){
+            router.push("/login");
+        return;
+        }
+       
       }
     }
 

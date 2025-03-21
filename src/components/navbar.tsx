@@ -1,13 +1,43 @@
+'use client'
 import Link from "next/link";
+import Image from "next/image";
+import icon from "@/assets/icon.png";
+import { useApp } from "@/hooks/app";
+import Button from "./ui/button";
 
-export default function Navbar() {
+
+interface NavbarProps {
+showNavbarRight?:boolean
+}
+
+export default function Navbar({showNavbarRight=true}) {
+
+    const {user, logout} =useApp();
+
   return (
     <div
       className=" border-b border-[#eee] px-8 py-4
-flex flex-col gap-4">
-      <div className="font-bold text-xl">
-        <span>Plataforma de Reservas</span>
+flex  gap-4 bg-white"
+    >
+      <div className="font-bold text-xl flex items-center gap-2">
+        <Image src={icon} width={20} alt="" />
+        <span>ReserveJá</span>
       </div>
+
+     {
+      showNavbarRight &&  <div className=" flex gap-2 items-center text-xs ml-auto w-fit">
+      {
+          user  ? 
+          (<>
+      <Link href={'/home'}>
+        <strong>{user.type == 'client'? 'Cliente: ': 'Prestador de serviço: '}</strong>
+        {user.name}</Link>
+      <Button color="red"  onClick={logout}>Sair</Button>
+
+          </>): (<Link href='/login'><Button>Entrar</Button></Link>)
+      }
+    </div>
+     }
     </div>
   );
 }

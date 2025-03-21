@@ -54,6 +54,7 @@ export default function Register() {
         toast.success('Login com sucesso!');
         
         router.push('/home')
+        return;
     }
     else{
         toast.error('Houve um erro, credencias inválidas');
@@ -66,7 +67,7 @@ export default function Register() {
   return (
     <AppWrapper needAuth={false}>
       <div className="flex flex-col min-h-screen w-full">
-        <Navbar />
+        <Navbar  showNavbarRight={false}/>
         <div className="flex-1 flex items-center justify-center">
           <div className=" shadow-xl w-[320px] px-4 py-6">
             <h1 className="text-2xl font-bold text-center mb-4">
@@ -92,9 +93,11 @@ export default function Register() {
                   });
                 }} type="password" minLength={6} placeholder="Senha" required={true} />
             
-             <Button onClick={register} disabled={isFetch} icon={
+             <Button onClick={register} disabled={isFetch} >
+             {
                 isFetch &&   <Image src={loadGif} className="invert" width={14} alt=''/>
-             }>Registrar</Button>
+             }
+              Entrar</Button>
             </form>
 
             <p className="text-sm text-center mt-6">

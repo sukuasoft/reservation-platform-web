@@ -2,5 +2,6 @@ export interface User {
     name:string, 
     type:string, 
     nif:string | null | undefined,
-    email:string
+    email:string, 
+    balance:number
 }

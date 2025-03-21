@@ -2,6 +2,8 @@
 
 import AppWrapper from "@/app/app-wrapper";
 import { User } from "@/types/user";
+import { delayTime } from "@/utils/time";
+import { useRouter } from "next/navigation";
 import { createContext, useState } from "react";
 
 export interface IAppContext {
@@ -11,8 +13,7 @@ export interface IAppContext {
   apiUrl:string,
   user:User|null,
   setUser: (user: User) => void;
-
-
+  logout:()=>void;
 }
 
 export const AppContext = createContext<IAppContext | undefined>(undefined);
@@ -26,9 +27,19 @@ export function AppProvider({ children, apiUrl }: IAppProviderProps) {
   const [token, setToken] = useState(localStorage.getItem('token') ?? '');
   const [user, setUser]= useState<User | null>(null);
 
+  const router = useRouter();
+
   function saveToken (_token:string){
     setToken(_token);
     localStorage.setItem('token', _token);
+  }
+
+
+  async function logout (){
+    localStorage.clear();
+await delayTime(0.8);
+router.push('/login')
+
   }
 
   return (
@@ -39,6 +50,7 @@ export function AppProvider({ children, apiUrl }: IAppProviderProps) {
         token,
         setToken, 
         saveToken,
+        logout
       }}
     >
 

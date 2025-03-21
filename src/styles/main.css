@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+
+.homeGradient {
+    background: url('./../../public/gradient.jpg') #5500ff ;
+    background-size: 30% ;
+    background-blend-mode: multiply;
+}

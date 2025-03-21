@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 
 export const metadata: Metadata = {
-  title: "Plataforma de reservas",
+  title: "ReserveJá",
   description: "",
 };
 
