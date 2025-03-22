@@ -20,7 +20,7 @@ const {user}=useApp();
     <AppWrapper>
       <div className="h-screen w-full flex flex-col">
         <Navbar />
-        <div className="flex-1 flex ">
+        <div className="flex-1 flex max-[600px]:flex-col">
           <Sidebar page="reservations" />
           <div className="px-4 py-6">
         {(user && user.type =='client' ) && <ReservationsClient />}

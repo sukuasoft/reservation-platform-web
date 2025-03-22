@@ -17,7 +17,7 @@ export default function Sidebar({page}:SidebarProps){
 
     return (
     
-    <aside className="border-[#eee] border-solid border-r pr-2 h-full  ">
+    <aside className="border-[#eee] border-solid border-r pr-2   ">
 
         <div className="flex flex-col justify-center px-4 py-2  gap-4  max-[600px]:flex-row max-[600px]:flex-wrap">
             <SidebarItem current={page =='home'} title="Início" image={dashboard} href='/home'/>

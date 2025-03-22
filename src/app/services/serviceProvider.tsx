@@ -155,7 +155,7 @@ export default function ServicesServiceProvider() {
         </Button>
       </div>
 
-      <table>
+      <table >
         <thead>
           <tr className="bg-[#eee] text-black text-sm">
             <th className="p-2">Nome</th>
