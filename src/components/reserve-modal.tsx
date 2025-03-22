@@ -42,7 +42,7 @@ const router =useRouter();
         })
       }
       
-      router.push('/reservas')
+      router.push('/reservations')
       
     
 

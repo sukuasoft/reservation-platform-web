@@ -10,6 +10,7 @@ import Button from "@/components/ui/button";
 import Link from "next/link";
 import DepositModal from "@/components/deposit-modal";
 import HomeUserClient from "./client";
+import { useRouter } from "next/navigation";
 
 export default function Home (){
 
@@ -17,6 +18,7 @@ export default function Home (){
     const {user}=useApp();
 
     const [showModalDeposit, setShowModalDeposit] = useState<boolean>(false);
+    const router = useRouter();
 
 
     return (<AppWrapper>  
@@ -43,7 +45,15 @@ export default function Home (){
                      
                     </div>
                     {user && user.type =='client'
-                    &&  <HomeUserClient />}
+                    ? <HomeUserClient />: (
+                        <div className="mt-6">
+        <div className="p-4 bg-[#e6daff] border border-[#a175ff] rounded-lg cursor-pointer
+         hover:bg-[#dac8ff] transition" onClick={() => router.push('/services')}>
+          <h3 className="text-lg font-semibold text-[#5500ff]">Explorar Serviços</h3>
+          <p className="text-sm  text-[#5500ff]">Clique aqui para visualizar e gerenciar todos os serviços disponíveis.</p>
+        </div>
+      </div>
+                    )}
                    
                 </div>
             </div>

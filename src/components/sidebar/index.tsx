@@ -15,7 +15,7 @@ export default function Sidebar({page}:SidebarProps){
     const {user}=useApp();
     return (<aside className="border-[#eee] border-solid border-r pr-2 h-full ">
 
-        <div className="flex flex-col justify-center px-8 py-2  gap-4">
+        <div className="flex flex-col justify-center px-6 py-2  gap-4">
             <SidebarItem current={page =='home'} title="Início" image={dashboard} href='/home'/>
             
 
