@@ -4,7 +4,7 @@ import AppWrapper from "@/app/app-wrapper";
 import { User } from "@/types/user";
 import { delayTime } from "@/utils/time";
 import { useRouter } from "next/navigation";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export interface IAppContext {
   token: string;
@@ -24,10 +24,13 @@ interface IAppProviderProps {
 }
 
 export function AppProvider({ children, apiUrl }: IAppProviderProps) {
-  const [token, setToken] = useState(localStorage.getItem('token') ?? '');
+  const [token, setToken] = useState('');
   const [user, setUser]= useState<User | null>(null);
 
   const router = useRouter();
+  useEffect(()=>{
+    setToken(localStorage.getItem('token') ?? '');
+  }, [])
 
   function saveToken (_token:string){
     setToken(_token);

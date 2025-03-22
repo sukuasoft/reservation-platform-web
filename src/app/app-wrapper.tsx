@@ -20,7 +20,7 @@ export default function AppWrapper({
   noRedirect=false
 }: AppWrapperProps) {
   const { get } = useApi();
-  const { setUser, user, setToken } = useApp();
+  const { setUser, user, token, setToken } = useApp();
   const [initialized, setInitialized] = useState(false);
 
   const router = useRouter();
@@ -78,7 +78,7 @@ export default function AppWrapper({
     if (!initialized) {
       initializing();
     }
-  }, []);
+  }, [token]);
 
   return (
     <div>
