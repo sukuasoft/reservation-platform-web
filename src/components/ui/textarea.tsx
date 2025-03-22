@@ -7,7 +7,7 @@ interface TextareaProps {
     name?:string|undefined,
     value?:string|undefined
 }
-export default function Textarea ({ onChange,name, value='',  placeholder, minLength, maxLength, required=false}:TextareaProps){
+export default function Textarea ({ onChange,name, value,  placeholder, minLength, maxLength, required=false}:TextareaProps){
     return (<textarea value={value} name={name} onChange={(ev)=>{
         if(onChange){
             onChange(ev.target.value);

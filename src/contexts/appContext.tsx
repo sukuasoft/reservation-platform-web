@@ -39,7 +39,7 @@ export function AppProvider({ children, apiUrl }: IAppProviderProps) {
     localStorage.clear();
     setUser(null);
 
-//await delayTime(0.8);
+await delayTime(0.8);
 router.push('/login')
 
   }

@@ -8,7 +8,7 @@ interface InputProps {
     name?:string|undefined, 
     value?:string|undefined
 }
-export default function Input ({type='text', onChange,name, value='' , placeholder, minLength, maxLength, required=false}:InputProps){
+export default function Input ({type='text', onChange,name, value, placeholder, minLength, maxLength, required=false}:InputProps){
     return (<input value={value} name={name} onChange={(ev)=>{
         if(onChange){
             onChange(ev.target.value);

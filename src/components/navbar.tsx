@@ -32,7 +32,9 @@ flex  gap-4 bg-white"
       <Link  className="max-[600px]:hidden" href={'/home'}>
         <strong>{user.type == 'client'? 'Cliente: ': 'Prestador de serviço: '}</strong>
         {user.name}</Link>
-      <Button color="red"  onClick={logout}>Sair</Button>
+     <div className="active:scale-110">
+     <Button color="red"  onClick={logout}>Sair</Button>
+     </div>
 
           </>): (<Link href='/login'><Button>Entrar</Button></Link>)
       }
