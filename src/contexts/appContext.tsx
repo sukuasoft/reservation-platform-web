@@ -37,7 +37,9 @@ export function AppProvider({ children, apiUrl }: IAppProviderProps) {
 
   async function logout (){
     localStorage.clear();
-await delayTime(0.8);
+    setUser(null);
+
+//await delayTime(0.8);
 router.push('/login')
 
   }

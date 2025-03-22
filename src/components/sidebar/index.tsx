@@ -21,11 +21,11 @@ export default function Sidebar({page}:SidebarProps){
 
             {
 ( user && user.type == 'service_provider' )&&
-            <SidebarItem  current={page =='services'}  title="Serviços" image={tool} href='/servicos'/>
+            <SidebarItem  current={page =='services'}  title="Serviços" image={tool} href='/services'/>
 }
             {
 ( user && user.type == 'client' )&&
-<SidebarItem   current={page =='reservations'} title="Reservas" image={reservation} href='/reservas'/>
+<SidebarItem   current={page =='reservations'} title="Reservas" image={reservation} href='/reservations'/>
             }
             
         </div>
